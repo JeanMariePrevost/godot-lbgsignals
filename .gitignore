@@ -1,0 +1,3 @@
+
+# Ignore Godot's default files
+*.uid
