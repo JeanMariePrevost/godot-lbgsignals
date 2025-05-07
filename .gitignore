@@ -1,3 +1,10 @@
 
 # Ignore Godot's default files
 *.uid
+
+
+# Build and tests stuff
+/bin
+/obj
+/tests/bin
+/tests/obj
