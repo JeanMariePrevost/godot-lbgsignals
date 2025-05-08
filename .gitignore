@@ -4,10 +4,13 @@
 
 
 # Build and tests stuff
-/bin
-/obj
-/tests/bin
-/tests/obj
+/bin/
+/obj/
+/tests/bin/
+/tests/obj/
 
-# VScode-specific files
+# Other
 /.vscode/
+.import/
+.export/
+*.user
