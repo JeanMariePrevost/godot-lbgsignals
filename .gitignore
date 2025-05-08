@@ -8,3 +8,6 @@
 /obj
 /tests/bin
 /tests/obj
+
+# VScode-specific files
+.vscode/
