@@ -1,3 +1,4 @@
+#nullable enable
 namespace LBG.LBGTools.Signal;
 
 /// <summary>
