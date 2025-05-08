@@ -1,3 +1,5 @@
+using System;
+
 namespace LBG.LBGTools.Signal;
 
 /// <summary>
