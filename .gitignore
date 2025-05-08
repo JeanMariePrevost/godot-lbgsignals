@@ -10,4 +10,4 @@
 /tests/obj
 
 # VScode-specific files
-.vscode/
+/.vscode/
