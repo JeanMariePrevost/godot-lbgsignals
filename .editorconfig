@@ -1,37 +1,32 @@
 [*.cs]
-csharp_new_line_before_open_brace = none  # Same-line braces
-csharp_new_line_before_else = false
-csharp_new_line_before_catch = false
-csharp_new_line_before_finally = false
+root = true
 
-max_line_length = 180
-trim_trailing_whitespace = true
-insert_final_newline = true
-# dotnet_analyzer_diagnostic.severity = warning # Enables all analyzers (i.e. linting) as warnings
-dotnet_naming_rule.interface_names_required.severity = error # Enforce interface names to start with I?
+# Brace style (same-line)
+csharp_new_line_before_open_brace    = none
+csharp_new_line_before_else          = false
+csharp_new_line_before_catch         = false
+csharp_new_line_before_finally       = false
 
+# Formatting
+max_line_length                      = 180
+trim_trailing_whitespace             = true
+insert_final_newline                 = true
 
-[*.cs]
-# Disabled ones
-dotnet_diagnostic.CA1051.severity = none # Do not declare visible instance fields
-dotnet_diagnostic.IDE0008.severity = none # Use explicit type instead of var
-dotnet_diagnostic.IDE0055.severity = none # Formatting rule (e.g. tabs vs spaces)
-dotnet_diagnostic.IDE0130.severity = none # Namespace does not match folder structure
-dotnet_diagnostic.CA2201.severity = none # Exception type System.Exception is not sufficiently specific
-dotnet_diagnostic.IDE0058.severity = none # Expression value is never used (i.e. unhandled return value)
-dotnet_diagnostic.IDE0011.severity = none # Add braces to 'if' statement. (i.e. no single-line if)
+# Naming rules
+dotnet_naming_rule.interface_names_required.severity = error  # interfaces start with “I”
 
+# Disabled analyzer rules
+dotnet_diagnostic.CA1051.severity    = none    # allow public instance fields
+dotnet_diagnostic.IDE0008.severity   = none    # don’t force explicit types
+dotnet_diagnostic.CA2201.severity    = none    # allow general Exception throws
+dotnet_diagnostic.IDE0058.severity   = none    # ignore unused return values
+dotnet_diagnostic.IDE0011.severity   = none    # allow single-line if statements
 
+# Suggestions (weaker than warnings)
+dotnet_diagnostic.IDE0060.severity   = suggestion  # unused parameter
+dotnet_diagnostic.IDE0035.severity   = suggestion  # unreachable code
+dotnet_diagnostic.CS0162.severity    = suggestion  # unreachable code (CS0162)
+dotnet_diagnostic.IDE0046.severity   = suggestion  # simplify conditional
 
-
-# Weak ones
-dotnet_diagnostic.IDE0060.severity = suggestion # Remove unused parameter
-dotnet_diagnostic.IDE0035.severity = suggestion # Unreachable code
-dotnet_diagnostic.CS0162.severity = suggestion # Unreachable code
-dotnet_diagnostic.IDE0046.severity = suggestion # 'if' statement can be simplified
-
-
-
-
-#Warnings
-dotnet_diagnostic.IDE1006.severity = warning # Naming rule violation
+# Warnings
+dotnet_diagnostic.IDE1006.severity   = warning     # naming convention violations
