@@ -8,6 +8,7 @@ namespace LBG.LBGTools.Signal;
 /// Base abstract LBGSignal class that handles the logic by wrapping every callback in a tuple.
 /// It also keeps a map of callbacks to their wrapped version, allowing for "finding" the callback by its original signature.
 /// This allows it to handle any arity of callbacks for a minimal performance cost, e.g. Action<T1>, Action<T1, T2>, Action<T1, T2, T3>, etc.
+/// Note: NOT currently thread-safe.
 /// </summary>
 ///
 /// <typeparam name="TExposed">
@@ -36,6 +37,21 @@ public abstract class AbstractLBGSignal<TExposed, TTupled> where TExposed : Dele
 
     /// <summary> The list of callbacks to be called when the event is triggered. </summary>
 	protected List<ListenerEntry> Listeners { get; } = [];
+
+    /// <summary> Whether the signal is currently mid-emission. </summary>
+    public bool IsEmitting { get; private set; } = false;
+
+    /// <summary> Whether the signal is currently in an emission that has been halted. </summary>
+    public bool InterruptRequested { get; private set; } = false;
+
+    /// <summary>
+    /// Stops an ongoing emission to remaining listeners.
+    /// E.g. for when a UI element wishes to "stop propagation".
+    /// Has no effect outside of an ongoing Emit() call.
+    /// </summary>
+    public void InterruptCurrentEmission() {
+        InterruptRequested = true;
+    }
 
     // ------------------------------------------
     // Public interface
@@ -79,6 +95,9 @@ public abstract class AbstractLBGSignal<TExposed, TTupled> where TExposed : Dele
     /// <summary> Triggers the signal, calling all registered callbacks. </summary>
     /// <param name="arg">The argument to pass to the callbacks.</param>
     public void Emit(TTupled arg) {
+        IsEmitting = true;
+        InterruptRequested = false;
+
         // Prepare and sort the list of callbacks to be called.
         var toRun = Listeners
             .OrderByDescending(e => e.Priority) // Sort by priority, highest first.
@@ -86,7 +105,12 @@ public abstract class AbstractLBGSignal<TExposed, TTupled> where TExposed : Dele
 
         // Call each callback in the sorted list.
         foreach (var entry in toRun) {
-            entry.Invoke(arg);
+            if (!InterruptRequested) {
+                entry.Invoke(arg);
+            } else {
+                // A listener requested to halt the emission ("consumed the event"), we stop dispatching.
+                break;
+            }
         }
 
         // Remove expired entries from the list of listeners
@@ -96,6 +120,9 @@ public abstract class AbstractLBGSignal<TExposed, TTupled> where TExposed : Dele
         foreach (var key in _map.Where(kvp => kvp.Value.IsExpired).Select(kvp => kvp.Key).ToList()) {
             _map.Remove(key);
         }
+
+        IsEmitting = false;
+        InterruptRequested = false;
     }
 
     // ------------------------------------------
