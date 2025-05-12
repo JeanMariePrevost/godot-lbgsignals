@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace LBG.LBGTools.Signal;
 
@@ -21,6 +22,28 @@ namespace LBG.LBGTools.Signal;
 /// The type that TExposed gets wrapped into, to be used by LBGSignal<T> under the hood, e.g. (T1, T2, T3).
 /// This one is a tuple type, not a delegate.
 /// </typeparam>
+//
+// TODO: **Weak ref listeners** (and make it default?)
+// TODO: Implement the "Awaiter Pattern", allowing us to directly await a signal itself, e.g. "await MouseEntered"
+// TODO: **Autosignals** that _observe_ a predicate or property or field, and can emit changes, toggles, or "every frame this is true" and the likes.
+// TODO: Deboucing and/or throttling as an option?
+// TODO: ASync emit worth anything?
+// TODO: Make it thread-safe?
+// TODO: Conditional listeners and/or conditional emits?
+// TODO: Grouped or tagged listeners? (E.g. "EmitFor("enemy", 12.5f)")
+// TODO: Pausing or interrupting a dispatch?
+// TODO: "Emit delayed"?
+// TODO: Hooking into the dispatch of another signal?
+// TODO: "Safe listen" that are more like "TryEmit" ? Meaning the call catches any exceptions silently (or allows for another callback)
+// TODO: ignal-level error handler?
+// TODO: History and/or caching of last payloads? Bad idea? E.g. "Replay last event"? Can a closure give a 100% safe "snapshot"?
+// TODO: Bubbling, capturing, filtering?
+// TODO: "SkipX" instead of "CallLimit" ? E.g. "SkipFirst(3)" or "Every(2)"
+// TODO: Atomic operations possible even for emit?
+// TODO: EmitTo() ? Like targeting by delegate, or index, or propertion, or randomly...?
+// TODO:
+// TODO:
+// TODO:
 public abstract class AbstractLBGSignal<TExposed, TTupled> where TExposed : Delegate // i.e. it "must be a function"
 {
     /// <summary>
