@@ -1,5 +1,7 @@
 # LBGSignals – Lightweight, type-safe event signaling
 
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE) [![Godot 4.2+](https://img.shields.io/badge/Godot-4.2%2B-blue.svg)](https://godotengine.org/) [![.NET 8](https://img.shields.io/badge/.NET-8-blueviolet.svg)](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-8/overview)
+
 **LBGSignals** is a lightweight C# utility that provides a simple, type-safe way to define and emit signals without relying on string names or reflection. It takes direct inspiration from Robert Penner's [AS3 Signals](https://github.com/robertpenner/as3-signals)
 
 It aims to provide a middle ground between C# events and Godot Signals while reducing boilerplate and providing a type-safe, uniform and intuitive API.
