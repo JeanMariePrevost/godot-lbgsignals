@@ -1,7 +1,7 @@
-using LBG.GodotTools.Signal;
 using Xunit;
+using LBG.GodotTools.Signals;
 
-namespace LBG.Tests.GodotTools.Signal;
+namespace LBG.Tests.GodotTools.Signals;
 public class LBGSignal_T1Tests {
     [Fact]
     public void Add_Callback_ShouldPassValue() {

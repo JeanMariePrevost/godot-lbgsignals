@@ -1,7 +1,7 @@
 
 using System;
 
-namespace LBG.GodotTools.Signal;
+namespace LBG.GodotTools.Signals;
 
 public readonly struct Unit { }   // empty struct, just a placeholder for "void" type
 

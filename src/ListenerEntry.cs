@@ -1,6 +1,6 @@
 using System;
 
-namespace LBG.GodotTools.Signal;
+namespace LBG.GodotTools.Signals;
 
 /// <summary>
 /// Internal record that wraps a user callback and tracks metadata

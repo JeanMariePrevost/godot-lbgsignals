@@ -5,16 +5,10 @@
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <ImplicitUsings>disable</ImplicitUsings>
-    <!-- <EnableDefaultCompileItems>false</EnableDefaultCompileItems> -->
-    <RootNamespace>LBG.GodotTools</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="GodotSharp" Version="4.3.0" />
   </ItemGroup>
-
-  <!-- <ItemGroup>
-    <Compile Include="**\*.cs" />
-  </ItemGroup> -->
 
 </Project>
