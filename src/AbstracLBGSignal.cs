@@ -34,15 +34,12 @@ namespace LBG.GodotTools.Signals;
 // TODO: "Emit delayed"?
 // TODO: Hooking into the dispatch of another signal?
 // TODO: "Safe listen" that are more like "TryEmit" ? Meaning the call catches any exceptions silently (or allows for another callback)
-// TODO: ignal-level error handler?
+// TODO: Signal-level error handler?
 // TODO: History and/or caching of last payloads? Bad idea? E.g. "Replay last event"? Can a closure give a 100% safe "snapshot"?
 // TODO: Bubbling, capturing, filtering?
 // TODO: "SkipX" instead of "CallLimit" ? E.g. "SkipFirst(3)" or "Every(2)"
 // TODO: Atomic operations possible even for emit?
 // TODO: EmitTo() ? Like targeting by delegate, or index, or propertion, or randomly...?
-// TODO:
-// TODO:
-// TODO:
 public abstract class AbstractLBGSignal<TExposed, TTupled> where TExposed : Delegate // i.e. it "must be a function"
 {
     /// <summary>
