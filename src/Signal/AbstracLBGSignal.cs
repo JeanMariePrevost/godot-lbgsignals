@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace LBG.LBGTools.Signal;
+namespace LBG.GodotTools.Signal;
 
 /// <summary>
 /// Base abstract LBGSignal class that handles the logic by wrapping every callback in a tuple.

@@ -1,6 +1,6 @@
 using System;
 
-namespace LBG.LBGTools.Signal;
+namespace LBG.GodotTools.Signal;
 
 /// <summary>
 /// A type-safe signal that takes one argument.

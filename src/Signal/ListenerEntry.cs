@@ -1,7 +1,6 @@
-#nullable enable
 using System;
 
-namespace LBG.LBGTools.Signal;
+namespace LBG.GodotTools.Signal;
 
 /// <summary>
 /// Internal record that wraps a user callback and tracks metadata

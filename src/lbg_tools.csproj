@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>disable</ImplicitUsings>
     <!-- <EnableDefaultCompileItems>false</EnableDefaultCompileItems> -->
-    <RootNamespace>LBG.LBGTools</RootNamespace>
+    <RootNamespace>LBG.GodotTools</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
